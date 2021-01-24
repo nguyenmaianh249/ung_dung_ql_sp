@@ -14,13 +14,13 @@ function show_product() {
                                 <button>Edit</button>
                             </td>
                             <td>
-                                 <button>Delete</button>
+                                 <button onclick = "deleteProduct()" >Delete</button>
                             </td>
                             </tr>`;
         table_content += product_row;
     }
 
-    document.write("products_table").innerHTML = table_content;
+    document.getElementById("products_table").innerHTML = table_content;
 }
 
 function add_product(product_name) {
@@ -30,5 +30,15 @@ function add_product(product_name) {
 function btn_add_product() {
     let product_name = document.getElementById("product_name").value;
     add_product(product_name);
-    show_product()
+    show_product();
+}
+
+function deleteProduct(index) {
+    products_list.splice(index, 1)
+    show_product();
+}
+
+function editProduct(index) {
+    document.getElementById("product_name").value = product.products_list
+
 }
